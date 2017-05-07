@@ -123,10 +123,21 @@ class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Box
-            squareValues={squareValues}
-            onClick={i => this.handleClick(i)}
-          />
+          <div className="board-row">
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+          </div>
+          <div className="board-row">
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+          </div>
+          <div className="board-row">
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+            <Box squareValues={squareValues} onClick={i => this.handleClick(i)} />
+          </div>
         </div>
         <div className="game-info">
           <div>{status}</div>

@@ -27,6 +27,7 @@ ol, ul {
   height: 34px;
   margin-right: -1px;
   margin-top: -1px;
+  margin-bottom: -1px;
   padding: 0;
   text-align: center;
   width: 34px;
@@ -38,6 +39,16 @@ ol, ul {
 
 .box {
   border: 3px solid #999;
+  float: left;
+  margin-right: -3px;
+  margin-bottom: -3px;
+  padding: 0;
+}
+
+.board-row {
+  clear: both;
+  content: "";
+  display: table;
 }
 
 .kbd-navigation .square:focus {
