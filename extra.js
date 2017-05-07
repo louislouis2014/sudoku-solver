@@ -1,3 +1,55 @@
+
+// Sudoku Object
+function Sudoku(grid){
+    this.grid = new Grid(9, 9);
+}
+
+Sudoku.prototype.getRow = function(row){
+    return this.grid[row-1];
+}
+
+Sudoku.prototype.getCol = function(col){
+    return this.grid.map( row => row[col] );
+}
+
+Sudoku.prototype.getSect = function(x, y){
+    if( !y ){
+        y = Math.floor(x / 3);
+        x = x % 3;
+    }
+    return grid.slice( 3*y, 3*(y+1) )
+              .map( row => row.slice( 3*x, 3*(x+1) ))
+              .reduce( (sect, row) => sect.concat(row), [])    
+}
+
+Sudoku.prototype.getPos = function(row, col){
+    return this.grid[row-1][col-1];
+}
+
+Sudoku.prototype.setVal = function(row, col, val){
+    this.grid[row-1][col-1] = val;
+}
+
+Sudoku.prototype.toString = function(){
+    var strGrid = this.grid
+    
+    // replace nulls with _
+    strGrid = strGrid.map( row => 
+                row.map( val => 
+                    {if(!val){return '_'} return val;}))
+    
+    
+    // strGrid.forEach( row => row.splice(3, 0, '|') );
+    // strGrid.forEach( row => row.splice(7, 0, '|') );
+    // strGrid = strGrid.map( row => row.join(' ') );
+
+    //strGrid.splice(3, 0, repeat('-'.));
+    //strGrid.splice(7, 0, lnRow);
+    
+    return strGrid;
+}
+
+
 *
 8 9 5 | 7 4 2 | 1 3 6
 2 7 _ | 9 6 3 | 4 8 5

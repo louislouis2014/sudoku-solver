@@ -1,5 +1,8 @@
 var assert = require('chai').assert;
-var sudoku = require('../index.js')
+var Grid = require('../index.js')
+
+
+
 
 describe('Array', function(){
 	describe('#findReplace()', function(){
@@ -38,6 +41,37 @@ describe('Array', function(){
 
 
 describe('Sudoku', function(){
+	beforeEach(function() {
+      puzzle = new Sudoku([	[ 8,9,5,7,4,2,1,3,6 ],
+	              			[ 2,7,1,9,6,3,4,8,5 ],
+	              			[ 4,6,3,5,8,1,7,9,2 ],
+	              			[ 9,3,4,6,1,7,2,5,8 ],
+	              			[ 5,1,7,2,3,8,9,6,4 ],
+	             			[ 6,8,2,4,5,9,3,7,1 ],
+	              			[ 1,5,9,8,7,4,6,2,3 ],
+	              			[ 7,4,6,3,2,5,8,1,9 ],
+	              			[ 3,2,8,1,9,6,5,4,7 ] ]);
+    });
+
+	describe('Sudoku.constructor'){
+		it('should have a grid property', function(){
+			assert.equal( puzzle.hasOwnProperty('grid') );
+		})
+
+		it('grid should be an array', function(){
+			assert.equal( Array.isArray( puzzle.grid ) );
+		})
+
+		it('grid have 9 rows and 9 columns', function(){
+			assert.equal( puzzle.length === 9 );
+			assert.equal( puzzle.reduce( (rowLen, row) => {
+				return rowLen > row.length ? rowLen : row.length;
+			}), 0)
+		})
+	}
+
+	describe('Sudoku.getRow')
+
 	var puzzle = [[ 8,9,5,7,4,2,1,3,6 ],
 	              [ 2,7,1,9,6,3,4,8,5 ],
 	              [ 4,6,3,5,8,1,7,9,2 ],
